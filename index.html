@@ -21,6 +21,10 @@
       p:first-of-type::first-letter {
         font-size: 2em;
       }
+      
+      div {
+        cursor: pointer;
+      }
 
       @media screen and (min-width: 1025px) {
         #book {
@@ -32,7 +36,7 @@
         #rotate-page {
           display: flex;
           height: 80vh;
-          width: 1000px;
+          width: 800px;
           position: absolute;
           z-index: 1;
         }
@@ -43,7 +47,7 @@
 
         .page {
           height: calc(80vh - 2px);
-          width: 498px;
+          width: 398px;
           background: snow;
           border: #e8e8e8 solid 1px;
         }
