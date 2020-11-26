@@ -94,14 +94,18 @@
   <body>
     <div id="book">
       <div id="rotate-page">
-        <div id="page-left" class="page" onclick="filp_page(...to[1])" ontouch="filp_page(...to[1])">
-          <h1></h1>
-          <div></div>
-        </div>
-        <div id="page-right" class="page" onclick="filp_page(...to[0])" ontouch="filp_page(...to[0])">
-          <h1></h1>
-          <div></div>
-        </div>
+        <a onclick="filp_page(...to[1])">
+          <div id="page-left" class="page">
+            <h1></h1>
+            <div></div>
+          </div>
+        </a>
+        <a onclick="filp_page(...to[0])">
+          <div id="page-right" class="page">
+            <h1></h1>
+            <div></div>
+          </div>
+        </a>
       </div>
       <div id="left-page" class="page">
         <h1></h1>
