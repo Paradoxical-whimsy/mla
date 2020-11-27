@@ -118,6 +118,8 @@
         <div></div>
       </div>
     </div>
+    <button type="button" ontouchstart="filp_page(...to[1])" onclick="filp_page(...to[1])">prev</button>
+    <button type="button" ontouchstart="filp_page(...to[0])" onclick="filp_page(...to[0])">next</button>
     <script type="text/javascript">
       let page = document.querySelector('#rotate-page');
       let pages = document.querySelectorAll('.page');
@@ -248,6 +250,9 @@
       document.querySelector('#book').addEventlistener('tap', (e) => document.write('book-tap' + e.target.id));
       alert(123);
       pages[1].children[0].innerText += 123;
+      document.body.addEventlistener('touchstart', (e) => document.write('body-touchstart' + e.target.id));
+      document.body.addEventlistener('touch', (e) => document.write('body-touch' + e.target.id));
+      document.body.addEventlistener('tap', (e) => document.write('body-tap' + e.target.id));
     </script>
   </body>
 </html>
