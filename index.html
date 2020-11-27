@@ -94,18 +94,20 @@
   <body>
     <div id="book">
       <div id="rotate-page">
-        <a ontouchstart="filp_page(...to[1])" onclick="filp_page(...to[1])">
+<!--         <a ontouchstart="filp_page(...to[1])" onclick="filp_page(...to[1])"> -->
           <div id="page-left" class="page">
             <h1></h1>
             <div></div>
+            <input type="button" value="prev" ontouchstart="filp_page(...to[1])" onclick="filp_page(...to[1])" />
           </div>
-        </a>
-        <a ontouchstart="filp_page(...to[0])" onclick="filp_page(...to[0])">
+<!--         </a> -->
+<!--         <a ontouchstart="filp_page(...to[0])" onclick="filp_page(...to[0])"> -->
           <div id="page-right" class="page">
             <h1></h1>
             <div></div>
+            <input type="button" value="next" ontouchstart="filp_page(...to[0])" onclick="filp_page(...to[0])" />
           </div>
-        </a>
+<!--         </a> -->
       </div>
       <div id="left-page" class="page">
         <h1></h1>
