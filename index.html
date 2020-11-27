@@ -94,16 +94,20 @@
   <body>
     <div id="book">
       <div id="rotate-page">
+        <a on-touch="filp_page(...to[1])" ontouch="filp_page(...to[1])" on-tap="filp_page(...to[1])" on-tap="filp_page(...to[1])" ontouchstart="filp_page(...to[1])" onclick="filp_page(...to[1])">
           <div id="page-left" class="page">
             <h1></h1>
             <div></div>
-            <a on-touch="filp_page(...to[1])" ontouch="filp_page(...to[1])" on-tap="filp_page(...to[1])" on-tap="filp_page(...to[1])" ontouchstart="filp_page(...to[1])" onclick="filp_page(...to[1])">prev</a>
+            <input type="button" value="prev"  on-touch="filp_page(...to[1])" ontouch="filp_page(...to[1])" on-tap="filp_page(...to[1])" on-tap="filp_page(...to[1])" ontouchstart="filp_page(...to[1])" onclick="filp_page(...to[1])" />
           </div>
+        </a>
+        <a on-touch="filp_page(...to[0])" ontouch="filp_page(...to[0])" on-tap="filp_page(...to[0])" on-tap="filp_page(...to[0])" ontouchstart="filp_page(...to[0])" onclick="filp_page(...to[0])">
           <div id="page-right" class="page">
             <h1></h1>
             <div></div>
-            <a on-touch="filp_page(...to[0])" ontouch="filp_page(...to[0])" on-tap="filp_page(...to[0])" on-tap="filp_page(...to[0])" ontouchstart="filp_page(...to[0])" onclick="filp_page(...to[0])">prev</a>
+            <input type="button" value="next"  on-touch="filp_page(...to[0])" ontouch="filp_page(...to[0])" on-tap="filp_page(...to[0])" on-tap="filp_page(...to[0])" ontouchstart="filp_page(...to[0])" onclick="filp_page(...to[0])" />
           </div>
+        </a>
       </div>
       <div id="left-page" class="page">
         <h1></h1>
