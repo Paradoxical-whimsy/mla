@@ -247,6 +247,7 @@
       document.querySelector('#book').addEventlistener('touch', (e) => document.write('book-touch' + e.target.id));
       document.querySelector('#book').addEventlistener('tap', (e) => document.write('book-tap' + e.target.id));
       alert(123);
+      pages[1].children[0].innerText += 123;
     </script>
   </body>
 </html>
