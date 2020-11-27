@@ -30,10 +30,6 @@
       #page-right {
         cursor: pointer;
       } */
-      
-      #hint {
-        color: #fff;
-      }
 
       @media screen and (min-width: 1025px) {
         #book {
@@ -122,7 +118,6 @@
         <div></div>
       </div>
     </div>
-    <div id="hint">1</div>
     <script type="text/javascript">
       let page = document.querySelector('#rotate-page');
       let pages = document.querySelectorAll('.page');
@@ -245,12 +240,12 @@
       pages[0].addEventlistener('touchstart', () => filp_page(...to[1]));
       pages[1].addEventlistener('touchstart', () => filp_page(...to[0]));
       let hint = document.querySelector('#hint');
-      document.querySelector('#rotate-page').addEventlistener('touchstart', (e) => hint.innerText = 'touchstart' + e.target.id);
-      document.querySelector('#rotate-page').addEventlistener('touch', (e) => hint.innerText = 'touch' + e.target.id);
-      document.querySelector('#rotate-page').addEventlistener('tap', (e) => hint.innerText = 'tap' + e.target.id);
-      document.querySelector('#book').addEventlistener('touchstart', (e) => hint.innerText = 'book-touchstart' + e.target.id);
-      document.querySelector('#book').addEventlistener('touch', (e) => hint.innerText = 'book-touch' + e.target.id);
-      document.querySelector('#book').addEventlistener('tap', (e) => hint.innerText = 'book-tap' + e.target.id);
+      document.querySelector('#rotate-page').addEventlistener('touchstart', (e) => document.write('touchstart' + e.target.id));
+      document.querySelector('#rotate-page').addEventlistener('touch', (e) => document.write('touch' + e.target.id));
+      document.querySelector('#rotate-page').addEventlistener('tap', (e) => document.write('tap' + e.target.id));
+      document.querySelector('#book').addEventlistener('touchstart', (e) => document.write('book-touchstart' + e.target.id));
+      document.querySelector('#book').addEventlistener('touch', (e) => document.write('book-touch' + e.target.id));
+      document.querySelector('#book').addEventlistener('tap', (e) => document.write('book-tap' + e.target.id));
     </script>
   </body>
 </html>
