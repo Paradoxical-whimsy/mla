@@ -94,13 +94,13 @@
   <body>
     <div id="book">
       <div id="rotate-page">
-        <a onclick="filp_page(...to[1])">
+        <a ontouchstart="filp_page(...to[1])" onclick="filp_page(...to[1])">
           <div id="page-left" class="page">
             <h1></h1>
             <div></div>
           </div>
         </a>
-        <a onclick="filp_page(...to[0])">
+        <a ontouchstart="filp_page(...to[0])" onclick="filp_page(...to[0])">
           <div id="page-right" class="page">
             <h1></h1>
             <div></div>
@@ -125,19 +125,19 @@
         },
         {
           title: '1',
-          content: ['ÊÀ', '½ç']
+          content: ['ä¸–', 'ç•Œ']
         },
         {
           title: '2',
-          content: ['ÔÙ', '»µ']
+          content: ['å†', 'å']
         },
         {
           title: '3',
-          content: ['ÈÔ', '¾É']
+          content: ['ä»', 'æ—§']
         },
         {
           title: '4',
-          content: ['²»', 'ÅÂ']
+          content: ['ä¸', 'æ€•']
         }
       ]
       let cur_page_index;
