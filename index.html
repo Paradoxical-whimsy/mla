@@ -22,9 +22,9 @@
         font-size: 2em;
       }
       
-      div {
+/*       div {
         cursor: pointer;
-      }
+      } */
       
       /* #page-left,
       #page-right {
@@ -118,6 +118,7 @@
         <div></div>
       </div>
     </div>
+    <div id="hint"></div>
     <script type="text/javascript">
       let page = document.querySelector('#rotate-page');
       let pages = document.querySelectorAll('.page');
@@ -239,12 +240,13 @@
       
       pages[0].addEventlistener('touchstart', () => filp_page(...to[1]));
       pages[1].addEventlistener('touchstart', () => filp_page(...to[0]));
-      document.querySelector('#rotate-page').addEventlistener('touchstart', (e) => alert('touchstart', e.target.id));
-      document.querySelector('#rotate-page').addEventlistener('touch', (e) => alert('touch', e.target.id));
-      document.querySelector('#rotate-page').addEventlistener('tap', (e) => alert('tap', e.target.id));
-      document.querySelector('#book').addEventlistener('touchstart', (e) => alert('book-touchstart', e.target.id));
-      document.querySelector('#book').addEventlistener('touch', (e) => alert('book-touch', e.target.id));
-      document.querySelector('#book').addEventlistener('tap', (e) => alert('book-tap', e.target.id));
+      let hint = document.querySelector('#hint');
+      document.querySelector('#rotate-page').addEventlistener('touchstart', (e) => hint.innerText = 'touchstart' + e.target.id);
+      document.querySelector('#rotate-page').addEventlistener('touch', (e) => hint.innerText = 'touch' + e.target.id);
+      document.querySelector('#rotate-page').addEventlistener('tap', (e) => hint.innerText = 'tap' + e.target.id);
+      document.querySelector('#book').addEventlistener('touchstart', (e) => hint.innerText = 'book-touchstart' + e.target.id);
+      document.querySelector('#book').addEventlistener('touch', (e) => hint.innerText = 'book-touch' + e.target.id);
+      document.querySelector('#book').addEventlistener('tap', (e) => hint.innerText = 'book-tap' + e.target.id);
     </script>
   </body>
 </html>
