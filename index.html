@@ -236,6 +236,9 @@
       }
 
       init();
+      
+      pages[0].addEventlistener('touchstart', () => filp_page(...to[1]));
+      pages[1].addEventlistener('touchstart', () => filp_page(...to[0]));
     </script>
   </body>
 </html>
