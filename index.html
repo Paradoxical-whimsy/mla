@@ -104,8 +104,6 @@
         <div></div>
       </div>
     </div>
-    <button type="button" ontouchstart="filp_page(...to[1])" onclick="filp_page(...to[1])">prev</button>
-    <button type="button" ontouchstart="filp_page(...to[0])" onclick="filp_page(...to[0])">next</button>
     <script type="text/javascript">
       let page = document.querySelector('#rotate-page');
       let pages = document.querySelectorAll('.page');
@@ -140,6 +138,7 @@
       ]
 
       function rotate(start, end, axis, static_axis) {
+        alert(1);
         page.animate([{
           transform: `${static_axis} rotate${axis}(${start}deg)`
         }, {
@@ -152,7 +151,6 @@
       function filp_page(to, page1, page2, sub_page1, sub_page2, axis = 'Y', static_axis = 'rotateX(10deg)') {
         if (can_rotate) {
           if (cur_page_index - 2 >= 0 && to === -1 || cur_page_index + 2 <= contents.length && to === 1) {
-            alert(to);
             can_rotate = false;
             cur_page_index += to * 2;
             if (window.getComputedStyle(page)['display'] !== 'flex') {
