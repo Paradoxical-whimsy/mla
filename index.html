@@ -87,7 +87,6 @@
           width: 80vw;
           position: absolute;
           z-index: 1;
-          -webkit-animation: l_to_r 1s infinite;
         }
 
         .page {
@@ -171,7 +170,6 @@
       }
 
       function filp_page(to, page1, page2, sub_page1, sub_page2, axis = 'Y', static_axis = 'rotateX(10deg)') {
-        pages[1].style.background = '#0ff';
         page.WebkitAnimation = 'l_to_r 1s';
         alert(page);
         if (can_rotate) {
