@@ -86,11 +86,11 @@
   <body>
     <div id="book">
       <div id="rotate-page">
-        <div id="page-left" class="page">
+        <div id="page-left" class="page" onclick="filp_page(...to[1])">
           <h1></h1>
           <div></div>
         </div>
-        <div id="page-right" class="page">
+        <div id="page-right" class="page" onclick="filp_page(...to[0])">
           <h1></h1>
           <div></div>
         </div>
@@ -127,7 +127,7 @@
           title: '4',
           content: ['²»', 'ÅÂ']
         }
-      ]
+      ];
       let cur_page_index;
       let ms = 500;
       let can_rotate = true;
@@ -140,9 +140,11 @@
       function rotate(start, end, axis, static_axis) {
         alert(1);
         page.animate([{
-          transform: `${static_axis} rotate${axis}(${start}deg)`
+          transform: `${static_axis} rotate${axis}(${start}deg)`,
+          offest: 0
         }, {
-          transform: `${static_axis} rotate${axis}(${end}deg)`
+          transform: `${static_axis} rotate${axis}(${end}deg)`,
+          offest: 1
         }], {
           duration: ms
         });
