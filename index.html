@@ -221,21 +221,11 @@
       }
       init();
       
-      pages[0].addEventListener('touchstart', () => alert(2));
-      pages[1].addEventListener('touchstart', () => alert(3));
-      // let hint = document.querySelector('#hint');
-      document.querySelector('#page-left').addEventListener('touchstart', () => alert(1));
-      document.querySelector('#page-right').addEventListener('touchstart', () => alert(0));
-      // document.querySelector('#rotate-page').addEventListener('touch', (e) => document.write('touch' + e.target.id));
-      // document.querySelector('#rotate-page').addEventListener('tap', (e) => document.write('tap' + e.target.id));
-      // document.querySelector('#book').addEventListener('touchstart', (e) => document.write('book-touchstart' + e.target.id));
-      // document.querySelector('#book').addEventListener('touch', (e) => document.write('book-touch' + e.target.id));
-      // document.querySelector('#book').addEventListener('tap', (e) => document.write('book-tap' + e.target.id));
-      // alert(123);
-      // pages[1].children[0].innerText += 123;
-      // document.body.addEventListener('touchstart', (e) => document.write('body-touchstart' + e.target.id));
-      // document.body.addEventListener('touch', (e) => document.write('body-touch' + e.target.id));
-      // document.body.addEventListener('tap', (e) => document.write('body-tap' + e.target.id));
+      // pages[0].addEventListener('touchstart', () => alert(2));
+      // pages[1].addEventListener('touchstart', () => alert(3));
+      // document.querySelector('#page-left').addEventListener('touchstart', () => alert(1));
+      // document.querySelector('#page-right').addEventListener('touchstart', () => alert(0));
+      document.querySelector('#rotate-page').addEventListener('touchstart', (e) => alert(e.target.id));
     </script>
   </body>
 </html>
