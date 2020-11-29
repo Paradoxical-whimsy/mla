@@ -119,19 +119,19 @@
         },
         {
           title: '1',
-          content: ['ä¸–', 'ç•Œ']
+          content: ['ÊÀ', '½ç']
         },
         {
           title: '2',
-          content: ['å†', 'å']
+          content: ['ÔÙ', '»µ']
         },
         {
           title: '3',
-          content: ['ä»', 'æ—§']
+          content: ['ÈÔ', '¾É']
         },
         {
           title: '4',
-          content: ['ä¸', 'æ€•']
+          content: ['²»', 'ÅÂ']
         }
       ]
       let cur_page_index;
@@ -221,20 +221,20 @@
       }
       init();
       
-      pages[0].addEventlistener('touchstart', () => filp_page(...to[1]));
-      pages[1].addEventlistener('touchstart', () => filp_page(...to[0]));
+      pages[0].addEventListener('touchstart', () => filp_page(...to[1]));
+      pages[1].addEventListener('touchstart', () => filp_page(...to[0]));
       let hint = document.querySelector('#hint');
-      document.querySelector('#rotate-page').addEventlistener('touchstart', (e) => document.write('touchstart' + e.target.id));
-      document.querySelector('#rotate-page').addEventlistener('touch', (e) => document.write('touch' + e.target.id));
-      document.querySelector('#rotate-page').addEventlistener('tap', (e) => document.write('tap' + e.target.id));
-      document.querySelector('#book').addEventlistener('touchstart', (e) => document.write('book-touchstart' + e.target.id));
-      document.querySelector('#book').addEventlistener('touch', (e) => document.write('book-touch' + e.target.id));
-      document.querySelector('#book').addEventlistener('tap', (e) => document.write('book-tap' + e.target.id));
+      document.querySelector('#rotate-page').addEventListener('touchstart', (e) => document.write('touchstart' + e.target.id));
+      document.querySelector('#rotate-page').addEventListener('touch', (e) => document.write('touch' + e.target.id));
+      document.querySelector('#rotate-page').addEventListener('tap', (e) => document.write('tap' + e.target.id));
+      document.querySelector('#book').addEventListener('touchstart', (e) => document.write('book-touchstart' + e.target.id));
+      document.querySelector('#book').addEventListener('touch', (e) => document.write('book-touch' + e.target.id));
+      document.querySelector('#book').addEventListener('tap', (e) => document.write('book-tap' + e.target.id));
       alert(123);
       pages[1].children[0].innerText += 123;
-      document.body.addEventlistener('touchstart', (e) => document.write('body-touchstart' + e.target.id));
-      document.body.addEventlistener('touch', (e) => document.write('body-touch' + e.target.id));
-      document.body.addEventlistener('tap', (e) => document.write('body-tap' + e.target.id));
+      document.body.addEventListener('touchstart', (e) => document.write('body-touchstart' + e.target.id));
+      document.body.addEventListener('touch', (e) => document.write('body-touch' + e.target.id));
+      document.body.addEventListener('tap', (e) => document.write('body-tap' + e.target.id));
     </script>
   </body>
 </html>
