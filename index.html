@@ -170,8 +170,7 @@
       }
 
       function filp_page(to, page1, page2, sub_page1, sub_page2, axis = 'Y', static_axis = 'rotateX(10deg)') {
-        page.style.webkitAnimation = 'l_to_r 1s';
-        alert(window.clientWidth);
+        // page.style.webkitAnimation = 'l_to_r 1s';
         if (can_rotate) {
           if (cur_page_index - 2 >= 0 && to === -1 || cur_page_index + 2 <= contents.length && to === 1) {
             can_rotate = false;
@@ -196,7 +195,8 @@
             }
             pages[page1].style.opacity = 0;
             set_content(pages[sub_page1], pages[page1]);
-            rotate(0, -90 * to, axis, static_axis);
+            document.body.clientWidth > 1024 ? rotate(0, -90 * to, axis, static_axis) : page.style.webkitAnimation = 'l_to_r 1s';
+            // rotate(0, -90 * to, axis, static_axis);
             setTimeout(() => {
               pages[page1].style.opacity = 1;
               pages[page2].style.opacity = 0;
@@ -205,7 +205,7 @@
               } else if (to === -1) {
                 set_content(pages[page1], contents[cur_page_index]);
               }
-              rotate(90 * to, 0, axis, static_axis);
+              if (document.body.clientWidth > 1024) rotate(90 * to, 0, axis, static_axis);
             }, ms - 16);
             setTimeout(() => {
               pages[page2].style.opacity = 1;
@@ -215,6 +215,7 @@
                 set_content(pages[page2], pages[sub_page2]);
               }
               can_rotate = true;
+              page.style.webkitAnimation = '';
             }, ms * 2);
           }
         }
