@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-    <title></title>
+    <meta http-equiv="Content-Type" content="text/html charset=UTF-8" />
+    <title>mla</title>
     <style type="text/css">
       * {
         margin: 0;
         padding: 0;
-        cursor: pointer;
       }
 
       body {
@@ -17,10 +16,11 @@
 
       p {
         text-indent: 2em;
+        margin: 0 10px;
       }
 
       p:first-of-type::first-letter {
-        font-size: 2em;
+        font-size: 1.5em;
       }
       
       /* @-ms-keyframes l_to_r {
@@ -91,6 +91,10 @@
       }
 
       @media screen and (max-width: 1024px) {
+        html {
+          font-size: 14px;
+        }
+        
         #book {
           margin: 10vh 10vw;
           height: 80vh;
@@ -143,24 +147,24 @@
       let page = document.querySelector('#rotate-page');
       let pages = document.querySelectorAll('.page');
       let contents = [{
-          title: 'My Book',
-          content: ['']
+          title: 'My Little Airpot',
+          content: ['点我']
         },
         {
-          title: '1',
-          content: ['��', '��']
+          title: '广州足浴一夜',
+          content: ['人生是什么', '我今晚不知道喎']
         },
         {
-          title: '2',
-          content: ['��', '��']
+          title: '九龙公园游泳池',
+          content: ['二百年后这里什么也不是', '宇宙里有什么不是暂时']
         },
         {
-          title: '3',
-          content: ['��', '��']
+          title: '悲伤的采购',
+          content: ['从前话过要如何欣赏世界的美丽', '现在只懂得放假去消费']
         },
         {
-          title: '4',
-          content: ['��', '��']
+          title: '宅女上街吧',
+          content: ['但愿你的醒觉', '不会是在多年以后']
         }
       ];
       let cur_page_index;
@@ -172,27 +176,22 @@
         [-1, 1, 0, 3, 2]
       ]
 
-      function rotate(start, end, axis, static_axis) {
+      function rotate(start, end) {
         page.animate([{
-          transform: `${static_axis} rotate${axis}(${start}deg)`,
-          offest: 0
+          transform: `rotateX(10deg) rotateY(${start}deg)`,
         }, {
-          transform: `${static_axis} rotate${axis}(${end}deg)`,
-          offest: 1
+          transform: `rotateX(10deg) rotateY(${end}deg)`,
         }], {
           duration: ms
         });
       }
 
-      function filp_page(to, page1, page2, sub_page1, sub_page2, axis = 'Y', static_axis = 'rotateX(10deg)') {
+      function filp_page(to, page1, page2, sub_page1, sub_page2) {
         if (can_rotate) {
           if (cur_page_index - 2 >= 0 && to === -1 || cur_page_index + 2 <= contents.length && to === 1) {
             can_rotate = false;
             cur_page_index += to * 2;
-            if (window.getComputedStyle(page)['display'] !== 'flex') {
-              axis = 'X';
-              static_axis = '';
-            }
+            
             if (cur_page_index < 3 && to === 1 || cur_page_index >= contents.length - 2 && to === -1) {
               pages[sub_page1].style.opacity = 0;
             } else {
@@ -209,9 +208,8 @@
             }
             pages[page1].style.opacity = 0;
             set_content(pages[sub_page1], pages[page1]);
-            // document.body.clientWidth > 1024 ? rotate(0, -90 * to, axis, static_axis) : page.style.webkitAnimation = 'l_to_r 1s';
             if (document.body.clientWidth > 1024) {
-              rotate(0, -90 * to, axis, static_axis);
+              rotate(0, -90 * to);
             } else {
               if (to === 1) {
                 page.style.webkitAnimation = 'l_to_r1 .5s';
@@ -228,7 +226,7 @@
                 set_content(pages[page1], contents[cur_page_index]);
               }
               if (document.body.clientWidth > 1024) {
-                rotate(0, -90 * to, axis, static_axis);
+                rotate(90 * to, 0);
               } else {
                 if (to === 1) {
                   page.style.webkitAnimation = 'l_to_r2 .5s';
@@ -262,57 +260,6 @@
             let p = document.createElement('p');
             p.innerText = source.content[i];
             page.children[1].appendChild(p);
-          }
-        }
-      }
-      
-      function wk_filp_page(to, page1, page2, sub_page1, sub_page2, axis = 'Y', static_axis = 'rotateX(10deg)') {
-        if (can_rotate) {
-          if (cur_page_index - 2 >= 0 && to === -1 || cur_page_index + 2 <= contents.length && to === 1) {
-            can_rotate = false;
-            cur_page_index += to * 2;
-            // if (window.getComputedStyle(page)['display'] !== 'flex') {
-            //   axis = 'X';
-            //   static_axis = '';
-            // }
-            if (cur_page_index < 3 && to === 1 || cur_page_index >= contents.length - 2 && to === -1) {
-              pages[sub_page1].style.opacity = 0;
-            } else {
-              pages[sub_page1].style.opacity = 1;
-            }
-            if (cur_page_index === contents.length || cur_page_index === 0) {
-              pages[sub_page2].style.opacity = 0;
-            } else {
-              if (to === 1) {
-                set_content(pages[sub_page2], contents[cur_page_index]);
-              } else if (to === -1) {
-                set_content(pages[sub_page2], contents[cur_page_index - 1]);
-              }
-            }
-            pages[page1].style.opacity = 0;
-            set_content(pages[sub_page1], pages[page1]);
-            page.style.webkitAnimation = 'l_to_r 1s';
-            // rotate(0, -90 * to, axis, static_axis);
-            setTimeout(() => {
-              pages[page1].style.opacity = 1;
-              pages[page2].style.opacity = 0;
-              if (to === 1) {
-                set_content(pages[page1], contents[cur_page_index - 1]);
-              } else if (to === -1) {
-                set_content(pages[page1], contents[cur_page_index]);
-              }
-              if (document.body.clientWidth > 1024) rotate(90 * to, 0, axis, static_axis);
-            }, ms - 16);
-            setTimeout(() => {
-              pages[page2].style.opacity = 1;
-              if (cur_page_index === contents.length || cur_page_index === 0) {
-                pages[page2].style.opacity = 0;
-              } else {
-                set_content(pages[page2], pages[sub_page2]);
-              }
-              can_rotate = true;
-              page.style.webkitAnimation = '';
-            }, ms * 2 - 16);
           }
         }
       }
