@@ -171,7 +171,7 @@
 
       function filp_page(to, page1, page2, sub_page1, sub_page2, axis = 'Y', static_axis = 'rotateX(10deg)') {
         page.style.webkitAnimation = 'l_to_r 1s';
-        page.style.WebkitAnimation = 'l_to_r 1s';
+        alert(window.clientWidth);
         if (can_rotate) {
           if (cur_page_index - 2 >= 0 && to === -1 || cur_page_index + 2 <= contents.length && to === 1) {
             can_rotate = false;
