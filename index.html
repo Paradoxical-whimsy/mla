@@ -22,6 +22,26 @@
       p:first-of-type::first-letter {
         font-size: 2em;
       }
+      
+      @-ms-keyframes l_to_r {
+        0% {transform: 'rotateX(0deg)';}
+        100% {transform: 'rotateX(180deg)';}
+      }
+      
+      @keyframes l_to_r {
+        0% {transform: 'rotateX(0deg)';}
+        100% {transform: 'rotateX(180deg)';}
+      }
+      
+      @-webkit-keyframes l_to_r {
+        0% {transform: 'rotateX(0deg)';}
+        100% {transform: 'rotateX(180deg)';}
+      }
+      
+      @-moz-keyframes l_to_r {
+        0% {transform: 'rotateX(0deg)';}
+        100% {transform: 'rotateX(180deg)';}
+      }
 
       @media screen and (min-width: 1025px) {
         #book {
@@ -138,7 +158,6 @@
       ]
 
       function rotate(start, end, axis, static_axis) {
-        alert(1);
         page.animate([{
           transform: `${static_axis} rotate${axis}(${start}deg)`,
           offest: 0
@@ -151,6 +170,7 @@
       }
 
       function filp_page(to, page1, page2, sub_page1, sub_page2, axis = 'Y', static_axis = 'rotateX(10deg)') {
+        page.style.animation = 'l_to_r 1s';
         if (can_rotate) {
           if (cur_page_index - 2 >= 0 && to === -1 || cur_page_index + 2 <= contents.length && to === 1) {
             can_rotate = false;
