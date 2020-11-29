@@ -221,11 +221,11 @@
       }
       init();
       
-      pages[0].addEventListener('touchstart', () => filp_page(...to[1]));
-      pages[1].addEventListener('touchstart', () => filp_page(...to[0]));
+      pages[0].addEventListener('touchstart', () => alert(2));
+      pages[1].addEventListener('touchstart', () => alert(3));
       // let hint = document.querySelector('#hint');
-      document.querySelector('#page-left').addEventListener('touchstart', () => filp_page(...to[1]));
-      document.querySelector('#page-right').addEventListener('touchstart', () => filp_page(...to[0]));
+      document.querySelector('#page-left').addEventListener('touchstart', () => alert(1));
+      document.querySelector('#page-right').addEventListener('touchstart', () => alert(0));
       // document.querySelector('#rotate-page').addEventListener('touch', (e) => document.write('touch' + e.target.id));
       // document.querySelector('#rotate-page').addEventListener('tap', (e) => document.write('tap' + e.target.id));
       // document.querySelector('#book').addEventListener('touchstart', (e) => document.write('book-touchstart' + e.target.id));
